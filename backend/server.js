@@ -12,6 +12,7 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
     'https://notesapp-nine-red.vercel.app',
+    'https://yeet-deadpoolamis-projects.vercel.app',
   ],
   credentials: true
 }));

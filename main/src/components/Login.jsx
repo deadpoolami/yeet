@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+// Remove trailing slash from API base URL if present
+const API_BASE = import.meta.env.VITE_API_URL?.replace(/\/$/, "") || "";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -12,7 +14,7 @@ function Login() {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post("/api/auth/login", { username, password });
+      const res = await axios.post(`${API_BASE}/api/auth/login`, { username, password });
       localStorage.setItem("token", res.data.token);
       navigate("/");
     } catch (err) {
